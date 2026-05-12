@@ -71,9 +71,12 @@
   }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
   revealEls.forEach(el => revealer.observe(el));
 
-  /* ---------- Animated counters in the impact strip ---------- */
+  /* ---------- Animated counters (impact strip) ---------- */
+  // No IntersectionObserver gating — animate immediately on script load.
+  // Belt-and-braces fallback below guarantees final values appear even if
+  // requestAnimationFrame is suppressed (background tabs, broken environments).
   const counters = document.querySelectorAll(".impact__num [data-count]");
-  const startCount = (el) => {
+  const animateCounter = (el) => {
     if (el.dataset.done === "1") return;
     el.dataset.done = "1";
     const target = parseInt(el.dataset.count, 10);
@@ -81,32 +84,25 @@
       el.textContent = el.dataset.count;
       return;
     }
-    const duration = 1400;
-    const start = performance.now();
+    const duration = 1600;
+    const startTime = performance.now();
     const ease = (t) => 1 - Math.pow(1 - t, 3);
     const step = (now) => {
-      const t = Math.min(1, (now - start) / duration);
+      const t = Math.min(1, (now - startTime) / duration);
       el.textContent = Math.round(target * ease(t)).toLocaleString();
       if (t < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
   };
-  if ("IntersectionObserver" in window) {
-    const countObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          startCount(entry.target);
-          countObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: "0px 0px -8% 0px" });
-    counters.forEach(el => countObserver.observe(el));
-  } else {
-    counters.forEach(startCount);
-  }
-  // Safety net: if the observer never fires (impact strip already in view, weird timing),
-  // animate any remaining counters 2 s after load.
-  setTimeout(() => counters.forEach(startCount), 2000);
+  counters.forEach(animateCounter);
+  // Belt-and-braces: if anything went sideways, force final values after 2.5 s.
+  setTimeout(() => {
+    counters.forEach((el) => {
+      if (el.textContent === "0" || el.textContent === "") {
+        el.textContent = parseInt(el.dataset.count, 10).toLocaleString();
+      }
+    });
+  }, 2500);
 
   /* ---------- Hero typewriter for roles ---------- */
   const rolesEl = document.getElementById("rolesText");
