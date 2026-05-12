@@ -34,12 +34,7 @@
   <header class="nav" id="nav">
     <div class="container nav__inner">
       <a href="#hero" class="nav__brand" aria-label="Home">
-        <span class="nav__brand-mark">
-          <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
-            <rect width="32" height="32" rx="8" fill="currentColor" opacity=".15"/>
-            <path d="M8 12h6M14 12h6a4 4 0 0 1 0 8h-6a4 4 0 0 0 0 8h6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-          </svg>
-        </span>
+        <img src="profile.jpg" alt="Suraj Nayak" class="nav__avatar" width="36" height="36" />
         <span class="nav__brand-text">Suraj<span class="accent">.platform</span></span>
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Primary">
@@ -72,7 +67,11 @@
       <div class="hero__content">
         <div class="hero__status" aria-label="Status">
           <span class="dot"></span>
-          Available for Principal Platform / SRE engagements
+          Currently @ DataBahn.ai · Building AI-native SIEM infrastructure
+        </div>
+        <div class="hero__status hero__status--secondary" aria-label="Conference">
+          <span>🎟️</span>
+          Attending <strong>KubeCon India 2026</strong> · Hyderabad, Jun 2026
         </div>
         <p class="hero__eyebrow"><span class="accent">//</span> Principal Engineer · DevOps &amp; Platform Engineering</p>
         <h1 class="hero__title">
@@ -252,11 +251,16 @@
       </header>
       <div class="about__grid reveal">
         <div class="about__copy">
-          <p>
-            I'm a <strong>Principal DevOps &amp; Platform Engineer</strong> based in
-            <strong>Bengaluru, India</strong>, currently building the SRE
-            platform at <strong>DataBahn.ai</strong> for the CISO SIEM product.
-          </p>
+          <div class="about__intro">
+            <img src="profile.jpg" alt="Suraj Nayak" class="about__photo" width="120" height="120" />
+            <div>
+              <p>
+                I'm a <strong>Principal DevOps &amp; Platform Engineer</strong> based in
+                <strong>Bengaluru, India</strong>, currently building the SRE
+                platform at <strong>DataBahn.ai</strong> for the CISO SIEM product.
+              </p>
+            </div>
+          </div>
           <p>
             Over the past decade I've architected high-velocity software-delivery
             platforms across <strong>Locus</strong>, <strong>Roku</strong>,
@@ -277,6 +281,11 @@
             <a href="https://argo-cd.readthedocs.io/" class="link" target="_blank" rel="noopener">Argo CD</a>
             and <a href="https://www.terraform.io/" class="link" target="_blank" rel="noopener">Terraform</a>
             certified practitioner.
+          </p>
+          <p class="about__human">
+            <span class="about__human-emoji">☕</span>
+            When I'm not wrangling Kubernetes clusters, I'm cheering for RCB at the Chinnaswamy
+            or exploring Bengaluru's coffee scene with my family.
           </p>
         </div>
         <aside class="about__card">
@@ -637,6 +646,12 @@
           <div class="proj-card__stack">
             <span>ArgoCD</span><span>Terraform</span><span>EKS / GKE</span><span>OPA / Gatekeeper</span>
           </div>
+          <div class="proj-card__links">
+            <a href="https://github.com/surajnayak88" target="_blank" rel="noopener" class="proj-link">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2.18c-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.71.08-.7.08-.7 1.16.08 1.78 1.19 1.78 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.74.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.51-1.47.11-3.07 0 0 .97-.31 3.18 1.18a11.04 11.04 0 0 1 5.79 0c2.21-1.5 3.18-1.18 3.18-1.18.62 1.6.23 2.78.11 3.07.74.8 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.05.78 2.12v3.14c0 .31.21.67.8.56C20.21 21.38 23.5 17.07 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+              Architecture &amp; README
+            </a>
+          </div>
         </article>
 
         <article class="proj-card reveal" data-tilt data-tags="idp gitops">
@@ -653,6 +668,12 @@
           </ul>
           <div class="proj-card__stack">
             <span>Backstage</span><span>GitHub Actions</span><span>Terraform</span><span>Python</span>
+          </div>
+          <div class="proj-card__links">
+            <a href="https://github.com/surajnayak88" target="_blank" rel="noopener" class="proj-link">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2.18c-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.71.08-.7.08-.7 1.16.08 1.78 1.19 1.78 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.74.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.51-1.47.11-3.07 0 0 .97-.31 3.18 1.18a11.04 11.04 0 0 1 5.79 0c2.21-1.5 3.18-1.18 3.18-1.18.62 1.6.23 2.78.11 3.07.74.8 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.05.78 2.12v3.14c0 .31.21.67.8.56C20.21 21.38 23.5 17.07 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+              Architecture &amp; README
+            </a>
           </div>
         </article>
 
@@ -671,6 +692,12 @@
           <div class="proj-card__stack">
             <span>Python</span><span>AWS Cost Explorer</span><span>CAST.AI</span><span>Grafana</span>
           </div>
+          <div class="proj-card__links">
+            <a href="https://github.com/surajnayak88" target="_blank" rel="noopener" class="proj-link">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2.18c-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.71.08-.7.08-.7 1.16.08 1.78 1.19 1.78 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.74.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.51-1.47.11-3.07 0 0 .97-.31 3.18 1.18a11.04 11.04 0 0 1 5.79 0c2.21-1.5 3.18-1.18 3.18-1.18.62 1.6.23 2.78.11 3.07.74.8 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.05.78 2.12v3.14c0 .31.21.67.8.56C20.21 21.38 23.5 17.07 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+              Architecture &amp; README
+            </a>
+          </div>
         </article>
 
         <article class="proj-card reveal" data-tilt data-tags="sre">
@@ -687,6 +714,12 @@
           </ul>
           <div class="proj-card__stack">
             <span>Python</span><span>LLM APIs</span><span>PagerDuty</span><span>Prometheus</span><span>Jira</span>
+          </div>
+          <div class="proj-card__links">
+            <a href="https://github.com/surajnayak88" target="_blank" rel="noopener" class="proj-link">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2.18c-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.71.08-.7.08-.7 1.16.08 1.78 1.19 1.78 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.74.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.51-1.47.11-3.07 0 0 .97-.31 3.18 1.18a11.04 11.04 0 0 1 5.79 0c2.21-1.5 3.18-1.18 3.18-1.18.62 1.6.23 2.78.11 3.07.74.8 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.05.78 2.12v3.14c0 .31.21.67.8.56C20.21 21.38 23.5 17.07 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+              Architecture &amp; README
+            </a>
           </div>
         </article>
 
@@ -705,6 +738,12 @@
           <div class="proj-card__stack">
             <span>Istio</span><span>Envoy</span><span>EKS</span><span>Helm</span>
           </div>
+          <div class="proj-card__links">
+            <a href="https://github.com/surajnayak88" target="_blank" rel="noopener" class="proj-link">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2.18c-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.71.08-.7.08-.7 1.16.08 1.78 1.19 1.78 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.74.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.51-1.47.11-3.07 0 0 .97-.31 3.18 1.18a11.04 11.04 0 0 1 5.79 0c2.21-1.5 3.18-1.18 3.18-1.18.62 1.6.23 2.78.11 3.07.74.8 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.05.78 2.12v3.14c0 .31.21.67.8.56C20.21 21.38 23.5 17.07 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+              Architecture &amp; README
+            </a>
+          </div>
         </article>
 
         <article class="proj-card reveal" data-tilt data-tags="security">
@@ -721,6 +760,12 @@
           </ul>
           <div class="proj-card__stack">
             <span>AWS IAM</span><span>GCP IAM</span><span>OIDC</span><span>Terraform</span>
+          </div>
+          <div class="proj-card__links">
+            <a href="https://github.com/surajnayak88" target="_blank" rel="noopener" class="proj-link">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2.18c-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.71.08-.7.08-.7 1.16.08 1.78 1.19 1.78 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.74.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.51-1.47.11-3.07 0 0 .97-.31 3.18 1.18a11.04 11.04 0 0 1 5.79 0c2.21-1.5 3.18-1.18 3.18-1.18.62 1.6.23 2.78.11 3.07.74.8 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.05.78 2.12v3.14c0 .31.21.67.8.56C20.21 21.38 23.5 17.07 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+              Architecture &amp; README
+            </a>
           </div>
         </article>
 
@@ -921,18 +966,18 @@
             <span class="write-card__tag">FinOps</span>
             <span class="write-card__date">2026 · article</span>
           </div>
-          <h3>Stop right-sizing in Excel: event-driven FinOps with OPA</h3>
-          <p>How budget guardrails plus anomaly detection saved $200K/yr — and why dashboards alone never close the loop.</p>
+          <h3>How we cut cloud spend by $200K with FinOps automation</h3>
+          <p>Event-driven cost governance, OPA budget guardrails and anomaly detection — and why dashboards alone never close the loop.</p>
           <span class="write-card__cta">Read →</span>
         </a>
         <a href="#" class="write-card reveal">
           <div class="write-card__meta">
-            <span class="write-card__tag">SRE</span>
-            <span class="write-card__date">2025 · talk</span>
+            <span class="write-card__tag">AI Ops</span>
+            <span class="write-card__date">2026 · article</span>
           </div>
-          <h3>Multi-window burn-rate alerts done right (KubeCon EU)</h3>
-          <p>The math, the PromQL templates and the operational lessons from running 1h/6h plus 6h/3d alerts across 40+ services.</p>
-          <span class="write-card__cta">Watch →</span>
+          <h3>Building an AI SRE agent at Locus</h3>
+          <p>Wiring an LLM-powered triage agent into PagerDuty + Prometheus + Jira — 55% MTT-triage reduction, 40% drop in on-call fatigue.</p>
+          <span class="write-card__cta">Read →</span>
         </a>
         <a href="#" class="write-card reveal">
           <div class="write-card__meta">

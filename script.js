@@ -74,8 +74,13 @@
   /* ---------- Animated counters in the impact strip ---------- */
   const counters = document.querySelectorAll(".impact__num [data-count]");
   const startCount = (el) => {
+    if (el.dataset.done === "1") return;
+    el.dataset.done = "1";
     const target = parseInt(el.dataset.count, 10);
-    if (!Number.isFinite(target)) return;
+    if (!Number.isFinite(target)) {
+      el.textContent = el.dataset.count;
+      return;
+    }
     const duration = 1400;
     const start = performance.now();
     const ease = (t) => 1 - Math.pow(1 - t, 3);
@@ -86,15 +91,22 @@
     };
     requestAnimationFrame(step);
   };
-  const countObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        startCount(entry.target);
-        countObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  counters.forEach(el => countObserver.observe(el));
+  if ("IntersectionObserver" in window) {
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          startCount(entry.target);
+          countObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -8% 0px" });
+    counters.forEach(el => countObserver.observe(el));
+  } else {
+    counters.forEach(startCount);
+  }
+  // Safety net: if the observer never fires (impact strip already in view, weird timing),
+  // animate any remaining counters 2 s after load.
+  setTimeout(() => counters.forEach(startCount), 2000);
 
   /* ---------- Hero typewriter for roles ---------- */
   const rolesEl = document.getElementById("rolesText");
@@ -149,6 +161,20 @@
       projEmpty.hidden = shown !== 0;
     });
   }
+
+  /* ---------- Make cert cards clickable to Credly ---------- */
+  const credlyUrl = "https://www.credly.com/users/surajnayak88";
+  document.querySelectorAll(".cert-card").forEach((card) => {
+    card.classList.add("cert-card--clickable");
+    card.setAttribute("role", "link");
+    card.setAttribute("tabindex", "0");
+    card.setAttribute("aria-label", `${card.querySelector("h4")?.textContent ?? "Certification"} — verify on Credly`);
+    const open = () => window.open(credlyUrl, "_blank", "noopener");
+    card.addEventListener("click", open);
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
+    });
+  });
 
   /* ---------- Scroll progress bar ---------- */
   const progress = document.getElementById("scrollProgress");
