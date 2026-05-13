@@ -36,13 +36,24 @@
     });
   });
 
-  /* ---------- Sticky nav border on scroll ---------- */
+  /* ---------- Sticky nav border + FAB visibility on scroll ---------- */
   const nav = document.getElementById("nav");
+  const fab = document.getElementById("fab");
   const onScroll = () => {
-    nav?.classList.toggle("is-scrolled", window.scrollY > 16);
+    const y = window.scrollY;
+    nav?.classList.toggle("is-scrolled", y > 16);
+    if (fab) {
+      const show = y > window.innerHeight * 0.6;
+      fab.hidden = false; // initially hidden via attribute; flip once scroll fires
+      fab.classList.toggle("is-show", show);
+    }
   };
   document.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
+  // FAB click — smooth scroll to top
+  fab?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 
   /* ---------- Scroll-spy: active nav link ---------- */
   const navAnchors = Array.from(document.querySelectorAll(".nav__links a[data-section]"));
